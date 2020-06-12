@@ -14,7 +14,6 @@
 		4115B97B1A3EF8E90004EC0A /* RecognitionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4115B97A1A3EF8E90004EC0A /* RecognitionTests.m */; };
 		4115B9851A3EF9920004EC0A /* Launch Screen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4115B9841A3EF9920004EC0A /* Launch Screen.xib */; };
 		41184B4B1A3EFA8B007F5923 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41184B4A1A3EFA8B007F5923 /* UIKit.framework */; };
-		41184B4D1A3EFA93007F5923 /* libstdc++.6.0.9.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 41184B4C1A3EFA93007F5923 /* libstdc++.6.0.9.dylib */; };
 		41184B4F1A3EFA9B007F5923 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41184B4E1A3EFA9B007F5923 /* Foundation.framework */; };
 		41184B511A3EFAA8007F5923 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41184B501A3EFAA8007F5923 /* CoreGraphics.framework */; };
 		41184B591A3EFD41007F5923 /* tessdata in Resources */ = {isa = PBXBuildFile; fileRef = 41184B551A3EFCAD007F5923 /* tessdata */; };
@@ -95,7 +94,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				73BE4C441A5DADDD002C15F1 /* TesseractOCR.framework in Frameworks */,
-				41184B4D1A3EFA93007F5923 /* libstdc++.6.0.9.dylib in Frameworks */,
 				41184B511A3EFAA8007F5923 /* CoreGraphics.framework in Frameworks */,
 				41184B4F1A3EFA9B007F5923 /* Foundation.framework in Frameworks */,
 				41184B4B1A3EFA8B007F5923 /* UIKit.framework in Frameworks */,
@@ -248,11 +246,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4115B9811A3EF8E90004EC0A /* Build configuration list for PBXNativeTarget "TestsProjectTests" */;
 			buildPhases = (
+				DEFCEA3966A79BC90CE40C3D /* [CP] Check Pods Manifest.lock */,
 				EB697FCAF31FBCD095DB85A9 /* Check Pods Manifest.lock */,
 				4115B9701A3EF8E90004EC0A /* Sources */,
 				4115B9711A3EF8E90004EC0A /* Frameworks */,
 				4115B9721A3EF8E90004EC0A /* Resources */,
-				9017DE589BCC5537B8B27927 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -288,6 +286,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -331,19 +330,26 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		9017DE589BCC5537B8B27927 /* Copy Pods Resources */ = {
+		DEFCEA3966A79BC90CE40C3D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputPaths = (
+			inputFileListPaths = (
 			);
-			name = "Copy Pods Resources";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-TestsProjectTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/../Pods/Target Support Files/Pods-TestsProjectTests/Pods-TestsProjectTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EB697FCAF31FBCD095DB85A9 /* Check Pods Manifest.lock */ = {
